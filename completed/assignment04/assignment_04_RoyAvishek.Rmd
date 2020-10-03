@@ -3,9 +3,9 @@ title: "ASSIGNMENT 4"
 author: "Avishek Roy"
 date: '2020-09-25'
 output:
-  html_document: default
-  word_document: default
   pdf_document: default
+  word_document: default
+  html_document: default
 bibliography: bibliography.bib
 ---
 
@@ -37,13 +37,14 @@ This is a footnote
 # Inline Code
 ```{r include=FALSE}
 library(ggplot2)
-setwd("/Users/aviro/Documents/GitHub/dsc520")
-covid_df <- read.csv("data/nytimes/covid-19-data/us-states.csv")
+#getwd()
+#setwd("/Users/aviro/Documents/GitHub/dsc520")
+covid_df <- read.csv("us-states.csv")
 covid_df$date <- as.Date(covid_df$date)
 california_df <- covid_df[ which( covid_df$state == "California"), ]
 ny_df <- covid_df[ which( covid_df$state == "New York"), ]
 florida_df <- covid_df[ which( covid_df$state == "Florida"), ]
-heights_df
+
 california_df
 florida_df
 ny_df
@@ -66,8 +67,8 @@ ggplot(data=florida_df, aes(x=date, group=1)) +
 ## R4DS Height vs Earnings
 
 ```{r echo=FALSE}
-setwd("/Users/aviro/Documents/GitHub/dsc520")
-heights_df <- read.csv("data/r4ds/heights.csv")
+#setwd("/Users/aviro/Documents/GitHub/dsc520")
+heights_df <- read.csv("heights.csv")
 ggplot(heights_df, aes(x=height, y=earn, col=sex)) + 
   geom_point() + ggtitle('Height vs. Earnings') + 
   xlab('Height (Inches)') + 
@@ -93,7 +94,7 @@ knitr::kable(characters_df[, 1:5], "pipe",  caption = "One Ring to Rule Them All
 ## Pandoc Table
 
 ```{r}
-pandoc.table(characters_df, style = 'rmarkdown')
+#pandoc.table(characters_df, style = 'rmarkdown')
 ```
 
 # References
